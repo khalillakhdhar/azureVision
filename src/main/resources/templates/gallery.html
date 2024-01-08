@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Image Gallery</title>
+</head>
+<body>
+
+<h1>Image Gallery</h1>
+
+<div th:if="${images.empty}">
+    <p>No images to display.</p>
+</div>
+
+<div th:unless="${images.empty}">
+    <div th:each="image : ${images}">
+        <div>
+            <h2 th:text="${image.name}">Image Name</h2>
+            <img th:src="${image.imageUrl}" alt="Image"/>
+            <p th:text="${image.description}">Image Description</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
